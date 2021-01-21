@@ -1,5 +1,4 @@
 #include <algorithm>
-#include <memory>
 using namespace std;
 
 // (큰 집합으로 병합) + (경로 압축)
