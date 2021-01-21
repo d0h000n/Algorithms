@@ -28,5 +28,5 @@ struct disjointSetUnion {
     return link[x] = find(link[x]);
   }
   //same 연산
-  inline same(int a, int b) return find(a) == find(b);
+  inline int same(int a, int b) return find(a) == find(b);
 };
