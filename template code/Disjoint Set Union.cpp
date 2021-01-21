@@ -3,7 +3,7 @@
 using namespace std;
 
 // (큰 집합으로 병합) + (경로 압축)
-struct disjointSetUnion {
+struct DSU {
   int N;
   //follow: 집합의 크기
   //link: 집합의 대푯값
