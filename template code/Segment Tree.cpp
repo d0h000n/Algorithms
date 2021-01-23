@@ -1,27 +1,55 @@
-template <typename T> class SegmentTree {
+/* README first!!
+ This is basic Segment Tree.
+ 이것은 기본적인 구간 트리입니다.
+ 
+ It supports Query Operation, and Update Opertation.
+ 이는 쿼리 연산, 갱신 연산을 지원합니다.
+ 
+ If array's size is not the power of two, initialize them into identity of the operation.
+ 배열의 크기가 2의 거듭제곱이 아니라면 남는 자리에 연산에 대한 항등원들로 초기화합니다.
+ 
+ You can definition Segment Tree like this.
+ long long arr[n]; for (auto& s : arr) cin >> s;
+ SegmentTree st(arr, arr+n, "max");
+ 
+ Created by 김도훈 on 2021/01/24.
+ Copyright © 2021 김도훈. All rights reserved.
+ */
+#define fctr const T& a, const T& b
+template <typename T>
+class SegmentTree {
 private:
     int n;
-    T identity;
     vector<T> tree;
-public:
-    SegmentTree(T* s, T* e, T id) {
-        identity = id;
-        n = pow(2, ceil(log2(e-s)));
-        tree.assign(2*n, identity);
-        for (auto it = s; it != e; ++it) tree[it-s+n] = *it;
-        for (int i = n-1; i > 0; --i) tree[i] = tree[2*i]+tree[2*i+1];
+    T id;
+    function<T(fctr)> op;
+    void setting(string s) {
+        if (s == "max") {op = [](fctr) {return max(a, b);}; id = numeric_limits<T>::min();}
+        else if (s == "min") {op = [](fctr) {return min(a, b);}; id = numeric_limits<T>::max();}
+        else if (s == "sum") {op = [](fctr) {return a+b;}; id = 0;}
+        else if (s == "mul") {op = [](fctr) {return (a*b)%MOD;}; id = 1;}
+        else cerr << "There is No Operation \""+s+"\"!\n";
     }
-    T query(int a, int b) {
-        a += n; b += n; T q = identity;
-        while (a <= b) {
-            if (a%2 == 1) q += tree[a++]; a /= 2;
-            if (b%2 == 0) q += tree[b--]; b /= 2;
+    T _query(int a, int b) {
+        T q = id;
+        for (a += n, b += n; a <= b; a /= 2, b /= 2) {
+            if (a%2 == 1) q = op(q, tree[a++]);
+            if (b%2 == 0) q = op(q, tree[b--]);
         }
         return q;
     }
+public:
+    SegmentTree(T* s, T* e, string x) {
+        n = pow(2, ceil(log2(e-s)));
+        setting(x);
+        tree.assign(2*n, id);
+        for (auto it = s; it != e; ++it) tree[it-s+n] = *it;
+        for (int i = n-1; i > 0; --i) tree[i] = op(tree[2*i], tree[2*i+1]);
+    }
+    inline T query(int s, int e) {return _query(s-1, e-1);}
     void update(int k, T x) {
         tree[k+n] = x;
         for (int i = (k+n)/2; i >= 1; i /= 2)
-             tree[i] = tree[2*i]+tree[2*i+1];
+             tree[i] = op(tree[2*i], tree[2*i+1]);
     }
 };
