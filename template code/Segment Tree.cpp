@@ -48,6 +48,7 @@ public:
     }
     inline T query(int s, int e) {return _query(s-1, e-1);}
     void update(int k, T x) {
+        k -= 1;
         tree[k+n] = x;
         for (int i = (k+n)/2; i >= 1; i /= 2)
              tree[i] = op(tree[2*i], tree[2*i+1]);
