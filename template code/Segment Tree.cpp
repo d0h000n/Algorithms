@@ -15,6 +15,7 @@
  Created by 김도훈 on 2021/01/24.
  Copyright © 2021 김도훈. All rights reserved.
  */
+
 #define fctr const T& a, const T& b
 template <typename T>
 class SegmentTree {
