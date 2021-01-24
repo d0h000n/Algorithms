@@ -30,13 +30,18 @@ private:
         else if (s == "mul") {op = [](fctr) {return (a*b)%MOD;}; id = 1;}
         else cerr << "There is No Operation \""+s+"\"!\n";
     }
-    T _query(int a, int b) {
+    T _query(int s, int e) {
         T q = id;
-        for (a += n, b += n; a <= b; a /= 2, b /= 2) {
-            if (a%2 == 1) q = op(q, tree[a++]);
-            if (b%2 == 0) q = op(q, tree[b--]);
+        for (s += n, e += n; s <= e; s /= 2, e /= 2) {
+            if (s%2 == 1) q = op(q, tree[s++]);
+            if (e%2 == 0) q = op(q, tree[e--]);
         }
         return q;
+    }
+    void _update(int k, T x) {
+        tree[k+n] = x;
+        for (int i = (k+n)/2; i >= 1; i /= 2)
+             tree[i] = op(tree[2*i], tree[2*i+1]);
     }
 public:
     SegmentTree(T* s, T* e, string x) {
@@ -47,10 +52,5 @@ public:
         for (int i = n-1; i > 0; --i) tree[i] = op(tree[2*i], tree[2*i+1]);
     }
     inline T query(int s, int e) {return _query(s-1, e-1);}
-    void update(int k, T x) {
-        k -= 1;
-        tree[k+n] = x;
-        for (int i = (k+n)/2; i >= 1; i /= 2)
-             tree[i] = op(tree[2*i], tree[2*i+1]);
-    }
+    inline void update(int k, int x) {return _update(k-1, x);}
 };
