@@ -52,6 +52,7 @@ public:
         for (auto it = s; it != e; ++it) tree[it-s+n] = *it;
         for (int i = n-1; i > 0; --i) tree[i] = op(tree[2*i], tree[2*i+1]);
     }
+    inline void clear() fill(tree.begin(), tree.end(), id);
     inline T query(int s, int e) {return _query(s-1, e-1);}
     inline void update(int k, int x) {return _update(k-1, x);}
 };
