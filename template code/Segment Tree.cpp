@@ -5,8 +5,8 @@
  First index number is 0.
  시작 인덱스는 0입니다.
  
- It supports Query Operation, and Update Opertation.
- 이는 쿼리 연산, 갱신 연산을 지원합니다.
+ It supports Query Operation, Update Operation and Clear Operation.
+ 이는 쿼리 연산, 갱신 연산, 비우기 을 지원합니다.
  
  If array's size is not the power of two, initialize them into identity of the operation.
  배열의 크기가 2의 거듭제곱이 아니라면 남는 자리에 연산에 대한 항등원들로 초기화합니다.
