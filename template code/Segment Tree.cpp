@@ -33,7 +33,7 @@ private:
     }
     T _query(int s, int e) {
         T q = id;
-        for (s += n, e += n; s <= e; s /= 2, e /= 2) {
+        for (s += n, e += n; s <= e; s >>= 2, e >>= 2) {
             if (s%2 == 1) q = op(q, tree[s++]);
             if (e%2 == 0) q = op(q, tree[e--]);
         }
@@ -41,7 +41,7 @@ private:
     }
     void _update(int k, T x) {
         tree[k+n] = x;
-        for (int i = (k+n)/2; i >= 1; i /= 2)
+        for (int i = (k+n)/2; i >= 1; i >>= 2)
              tree[i] = op(tree[2*i], tree[2*i+1]);
     }
 public:
