@@ -2,6 +2,9 @@
  This is basic Segment Tree.
  이것은 기본적인 구간 트리입니다.
  
+ Starting Index is 0.
+ 시작 인덱스는 0입니다.
+ 
  It supports Query Operation, and Update Opertation.
  이는 쿼리 연산, 갱신 연산을 지원합니다.
  
