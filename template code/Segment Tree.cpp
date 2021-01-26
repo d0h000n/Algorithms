@@ -2,7 +2,7 @@
  This is basic Segment Tree.
  이것은 기본적인 구간 트리입니다.
  
- Starting Index is 0.
+ First Index is 0.
  시작 인덱스는 0입니다.
  
  It supports Query Operation, and Update Opertation.
