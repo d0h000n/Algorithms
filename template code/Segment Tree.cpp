@@ -5,6 +5,9 @@
  First index number is 1.
  시작 인덱스는 1입니다.
  
+ using namespace std와 iostream, vector, climits, string, functional, cmath의 인클루드를 가정합니다.
+ using namespace std and including iostream, vector, climits, string, functional, cmath is a prerequisite.
+ 
  It supports Query Operation, Update Operation and Clear Operation.
  이는 쿼리 연산, 갱신 연산, 비우기 연산을 지원합니다.
  
@@ -14,13 +17,6 @@
  Created by 김도훈 on 2021/01/24.
  Copyright © 2021 김도훈. All rights reserved.
  */
-#include <iostream>
-#include <vector>
-#include <climits>
-#include <string>
-#include <functional>
-#include <cmath>
-using namespace std;
 
 #define fctr const T& a, const T& b
 template <typename T>
