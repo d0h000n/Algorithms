@@ -54,7 +54,7 @@ void update(int idx, int frm, int val) {
 #### track
 ```C++
 void track(int idx, vector<int>& ans) {
-  if (idx > <#start point#>) track(rdp[idx]);
+  if (idx != start_idx) track(rdp[idx]);
   ans.push_back(dp[idx]);
 }
 ```
