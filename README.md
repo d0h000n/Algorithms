@@ -44,7 +44,20 @@ void dfs() {
 ### Binary Search
 
 ### Dynamic Programming
-
+#### Update
+```C++
+void update(int idx, int frm, int val) {
+  dp[idx] = val;
+  rdp[idx] = frm;
+}
+```
+#### track
+```C++
+void track(int idx, vector<int>& ans) {
+  if (idx > <#start point#>) track(rdp[idx]);
+  ans.push_back(dp[idx]);
+}
+```
 ## Mathmatics
 
 ### Sieve
