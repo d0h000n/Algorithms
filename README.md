@@ -44,8 +44,7 @@ void dfs(ci s) {
 * on Tree
 ```C++
 void dfs(int s, int e) {
-  for (auto u : adj[s]) {
-    if (u == e) continue;
+  for (auto u : adj[s]) if (u != e) {
     dfs(s,u);
   }
 }
