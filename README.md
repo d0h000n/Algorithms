@@ -36,12 +36,19 @@ const int R = 2, C = 2;
 bool visited[R][C];
 
 void dfs(ci s) {
-    if (!isIn(s) || visited[P(s)]) return;
-    visited[P(s)] = true;
-    REPh(i,0,4) dfs(s+move1[i]);
+  if (!isIn(s) || visited[P(s)]) return;
+  visited[P(s)] = true;
+  REPh(i,0,4) dfs(s+move1[i]);
 }
 ```
 * on Tree
+```C++
+void dfs(int s) {
+  for (auto u : adj[s]) if (s != e) {
+    dfs(u);
+  }
+}
+```
 
 #### BFS
 * on Graph
