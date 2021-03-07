@@ -18,6 +18,7 @@
 * on Graph/Tree
 ```C++
 vector<int> adj[N];
+bool visited[N];
 ```
 ```C++
 //on Graph
@@ -39,9 +40,9 @@ using ci = complex<int>;
 #define isIn(p) (0 <= p.real() && p.real() < R && 0 <= p.imag() && p.imag() < C)
 #define P(p) (p).real()][(p).imag()
 const ci move[] {{0,1},{1,0},{0,-1},{-1,0}};
-const int R = 2, C = 2;
 bool visited[R][C];
-
+```
+```C++
 void dfs(ci s) {
   if (!isIn(s) || visited[P(s)]) return;
   visited[P(s)] = true;
