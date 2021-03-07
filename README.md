@@ -27,11 +27,17 @@ void dfs(int s) {
 ```
 * on Matrix
 ```C++
-#define isIn(r,c) (0 <= r && r < R && 0 <= c && c <= C)
-const int dx[] = {0,1,0,-1}, dy[] = {1,0,-1,0};
-const int dr[] = {-1,-1,-1,0,0,1,1,1}, dc[] = {-1,0,1,-1,1,-1,0,1};
+#define isIn(p) (0 <= p.real() && p.real() < R && 0 <= p.imag() && p.imag() <= C)
+#define P(p) (p).real()][(p).imag()
+const complex<int> move1[] = {{0,1},{1,0},{0,-1},{-1,0}};
+const complex<int> move2[] = {{-1,-1},{-1,0},{-1,1},{0,-1},{0,1},{1,-1},{1,0},{1,1}};
+const int R = 2, C = 2;
+bool visited[R][C];
 
-void dfs() {
+void dfs(complex<int> s) {
+    if (!isIn(s) || visited[P(s)]) return;
+    visited[P(s)] = true;
+    REPh(i,0,4) dfs(s+move1[i]);
 }
 ```
 * on Tree
