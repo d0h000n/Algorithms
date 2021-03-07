@@ -15,14 +15,22 @@
 
 ### DFS/BFS
 #### DFS
-* on Graph
+* on Graph/Tree
 ```C++
 vector<int> adj[N];
-
+```
+```C++
+//on Graph
 void dfs(int s) {
   if (visited[s]) return;
   visited[s] = true;
   for (int u : adj[s]) dfs(u);
+}
+//on Tree
+void dfs(int s, int e) {
+  for (auto u : adj[s]) if (u != e) {
+    dfs(u,s);
+  }
 }
 ```
 * on Matrix
@@ -38,14 +46,6 @@ void dfs(ci s) {
   if (!isIn(s) || visited[P(s)]) return;
   visited[P(s)] = true;
   for (auto m : move) dfs(s+m);
-}
-```
-* on Tree
-```C++
-void dfs(int s, int e) {
-  for (auto u : adj[s]) if (u != e) {
-    dfs(u,s);
-  }
 }
 ```
 
