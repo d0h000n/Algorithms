@@ -30,14 +30,14 @@ void dfs(int s) {
 using ci = complex<int>;
 #define isIn(p) (0 <= p.real() && p.real() < R && 0 <= p.imag() && p.imag() < C)
 #define P(p) (p).real()][(p).imag()
-const ci move1[] {{0,1},{1,0},{0,-1},{-1,0}}, move2[] {{-1,-1},{-1,0},{-1,1},{0,-1},{0,1},{1,-1},{1,0},{1,1}};
+const ci move[] {{0,1},{1,0},{0,-1},{-1,0}};
 const int R = 2, C = 2;
 bool visited[R][C];
 
 void dfs(ci s) {
   if (!isIn(s) || visited[P(s)]) return;
   visited[P(s)] = true;
-  for (auto m : move1) dfs(s+m);
+  for (auto m : move) dfs(s+m);
 }
 ```
 * on Tree
