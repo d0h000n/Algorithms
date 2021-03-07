@@ -45,7 +45,7 @@ void dfs(ci s) {
 ```C++
 void dfs(int s, int e) {
   for (auto u : adj[s]) if (u != e) {
-    dfs(s,u);
+    dfs(u,s);
   }
 }
 ```
