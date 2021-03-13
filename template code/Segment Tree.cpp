@@ -41,9 +41,9 @@ private:
         return q;
     }
     void _update(int k, T x) {
-        tree[k+n] = x;
-        for (int i = (k+n)/2; i >= 1; i /= 2)
-             tree[i] = op(tree[2*i], tree[2*i+1]);
+        k += n; tree[k] = x;
+        for (k >>= 1; k >= 1; k >>= 1)
+             tree[k] = op(tree[k<<1], tree[(k<<1)+1]);
     }
 public:
     SegmentTree(T* s, T* e, string x) {
