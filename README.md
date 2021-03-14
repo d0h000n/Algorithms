@@ -83,6 +83,8 @@ using ii = pair<int,int>; using iii = tuple<int,int,int>;
 int sumTree[N];
 sumTree[0] = 0; //identity of operation.
 auto oper = [&](int a, int b) {return a+b;};
+int msb = 32; while (msb--) if (n>>msb) break;
+length = 1<<(msb+bool(n&(n-1)));
 ```
 ```C++
 void build() {
@@ -97,5 +99,12 @@ auto query(ii range, iii node, T tree[], function<T(const T& a, const T& b)> op)
   int m = (l+r)>>1;
   return op(query(range, {k<<1,    l,  m}, tree, op),
             query(range, {(k<<1)+1,m+1,r}, tree, op));
+}
+```
+```C++
+template <typename T>
+void update(int t, T x, T tree[], function<T(const T& a, const T& b)> op) {
+  for (tree[t += length] = x; t > 1; t >>= 1)
+    tree[t>>1] = op(tree[t], tree[t^1]);
 }
 ```
