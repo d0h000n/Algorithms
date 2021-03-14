@@ -7,7 +7,7 @@
 * Graph
 * Geometry
 * Tree
-* Segment Queries
+* Range Queries
 * Hard Graph
 * Guitar
 
@@ -75,3 +75,27 @@ void track(int idx, vector<int>& ans) {
 ## Mathmatics
 
 ### Sieve
+
+## Range Queries
+### Segment Tree
+```C++
+using ii = pair<int,int>; using iii = tuple<int,int,int>;
+int sumTree[N];
+sumTree[0] = 0; //identity of operation.
+auto oper = [&](int a, int b) {return a+b;};
+```
+```C++
+void build() {
+}
+```
+```C++
+template <typename T>
+auto query(ii range, iii node, T tree[], function<T(const T& a, const T& b)> op) {
+  auto [s,e] = range; auto [k,l,r] = node;
+  if (r < s || e < l) return tree[0];
+  if (l <= s && e <= r) return tree[k];
+  int m = (l+r)>>1;
+  return op(query(range, {k<<1,    l,  m}, tree, op),
+            query(range, {(k<<1)+1,m+1,r}, tree, op));
+}
+```
