@@ -80,11 +80,26 @@ void track(int idx, vector<int>& ans) {
 ### Segment Tree
 ```C++
 using ii = pair<int,int>; using iii = tuple<int,int,int>;
+```
+구간을 나타내기 위해 (정수,정수) 쌍이 필요하다.
+노드는 노드 번호와 커버하는 구간의 정보로 이루어진다. 따라서 (정수,정수,정수) 쌍이 필요하다.
+```C++
 int sumTree[N];
-sumTree[0] = 0; //identity of operation.
-auto oper = [&](int a, int b) {return a+b;};
+```
+이름이 `tree`만 아니면 된다. 함수 내에서 `tree`라는 이름을 이미 사용하고 있기 때문이다.
+```C++
 int msb = 32; while (msb--) if (n>>msb) break;
 length = 1<<(msb+bool(n&(n-1)));
+```
+MSB란 Most Significant Bit의 약자로, 최상위 비트를 뜻한다. 따라서 지금 `length`에 넣고자 하는 것은 $log_2$
+```C++
+fill_n(sumTree,n<<1,0);
+```
+구간 트리는 실제로 사용하는 인덱스가 1~2n-1까지다. 따라서 0번 인덱스를 사용하지 않는다.
+이 점을 생각하면 `sumTree[0]`에 해당 operation의 항등원인 0를 담고있게 하자.
+```C++
+auto oper = [&](int a, int b) {return a+b;};
+
 ```
 ```C++
 void build() {
@@ -104,7 +119,7 @@ auto query(ii range, iii node, T tree[], function<T(const T& a, const T& b)> op)
 ```C++
 template <typename T>
 void update(int t, T x, T tree[], function<T(const T& a, const T& b)> op) {
-  for (tree[t += length] = x; t > 1; t >>= 1)
+  for (tree[t += length-1] = x; t > 1; t >>= 1)
     tree[t>>1] = op(tree[t], tree[t^1]);
 }
 ```
