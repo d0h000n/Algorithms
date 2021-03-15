@@ -113,7 +113,7 @@ template <typename T>
 auto query(ii range, iii node, T tree[], function<T(const T& a, const T& b)> op) {
   auto [s,e] = range; auto [k,l,r] = node;
   if (r < s || e < l) return tree[0];
-  if (l <= s && e <= r) return tree[k];
+  if (s <= l && r <= e) return tree[k];
   int m = (l+r)>>1;
   return op(query(range, {k<<1,    l,  m}, tree, op),
             query(range, {(k<<1)|1,m+1,r}, tree, op));
@@ -140,7 +140,7 @@ void update(int t, T x, T tree[], function<T(const T& a, const T& b)> op) {
 auto query(ii range, iii node, int tree[], function<int(const int& a, const int& b)> op) {
   auto [s,e] = range; auto [k,l,r] = node;
   if (r < s || e < l) return tree[0];
-  if (l <= s && e <= r) return tree[k];
+  if (s <= l && r <= e) return tree[k];
   int m = (l+r)>>1;
   return op(query(range, {k<<1,l,m}, tree, op), query(range, {(k<<1)|1,m+1,r}, tree, op));
 }
