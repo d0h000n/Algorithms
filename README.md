@@ -139,7 +139,7 @@ void update(int t, T x, T tree[], function<T(const T& a, const T& b)> op) {
 ```C++
 auto query(ii range, iii node, int tree[], function<int(const int& a, const int& b)> op) {
   auto [s,e] = range; auto [k,l,r] = node;
-  if (r < s || e < l) return tree[0];
+  if (e < l || r < s) return tree[0];
   if (s <= l && r <= e) return tree[k];
   int m = (l+r)>>1;
   return op(query(range, {k<<1,l,m}, tree, op), query(range, {(k<<1)|1,m+1,r}, tree, op));
@@ -147,7 +147,7 @@ auto query(ii range, iii node, int tree[], function<int(const int& a, const int&
 
 void update(int t, int x, iii node, int tree[], function<int(const int& a, const int &b)> op) {
   auto [k,l,r] = node;
-  if (r < t || t < l) return;
+  if (t < l || r < t) return;
   if (l == r) {tree[k] = x; return;}
   int m = (l+r)>>1;
   update(t,x,{k<<1,l,m},tree,op); update(t,x,{(t<<1)|1,m+1,r},tree,op);
