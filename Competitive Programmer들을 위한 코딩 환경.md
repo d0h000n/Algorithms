@@ -26,10 +26,12 @@ https://code.visualstudio.com/
 터미널을 들어갑시다. Command+Space 누르고 바로 검색하면 뜹니다.
 
 1. XCode Command Line Tool을 설치합니다. (XCode라고?! 걍 따라와봐요)
-   * `xcode-select --install`라고 쓰고 엔터 눌러줘요.
+   * 처음이면 `xcode-select --install`라고 쓰고 엔터 눌러줘요.
    * 이미 설치했으면 설치 말고 업데이트 해야 하니깐 `softwareupdate -i -a` 요래 적어주고 엔터 눌러줘요.
 2. [homebrew](https://brew.sh/) 드가서 적당히 야무지게 깔아줘요.
 3. 다시 터미널 드가서 `brew install gcc` 적고 엔터.
 4. `g++-11 --version`이라고 적고, 엔터치면 copyright 뭐시기 뜨면서 완료됐다고 알려줍니다.
 
-현재 시점으로는 gcc 11 버전인데, 그때는 어떨지 모르니까 검색해서 밑에꺼 적당히 적어줘요.
+## 컴파일 세팅 드가자..!
+<img width="408" alt="스크린샷 2021-08-12 오후 7 15 47" src="https://user-images.githubusercontent.com/70815390/129180307-c8f3b533-b3af-4883-9cd9-d6acf01ad775.png">
+
