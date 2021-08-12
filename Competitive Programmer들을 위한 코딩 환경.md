@@ -34,7 +34,10 @@ softwareupdate --list # 업데이트 목록 나열
 softwareupdate -i -a # 모든 업데이트 설치
 ```
 요래 적어주고 엔터 눌러줘요.
+
 2. [homebrew](https://brew.sh/) 드가서 적당히 야무지게 깔아줘요.
+
 3. 다시 터미널 드가서 `brew install gcc` 적고 엔터.
+
 4. `g++-11 --version`이라고 적고, 엔터치면 
 현재 시점으로는 gcc 11 버전인데, 그때는 어떨지 모르니까 검색해서 밑에꺼 적당히 적어줘요.
