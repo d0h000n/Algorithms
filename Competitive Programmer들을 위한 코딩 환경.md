@@ -28,12 +28,7 @@ https://code.visualstudio.com/
 1. XCode Command Line Tool을 설치합니다. (XCode라고?! 걍 따라와봐요)
 
 * `xcode-select --install`라고 쓰고 엔터 눌러줘요.
-* 이미 설치했으면 설치 말고 업데이트 해야 하니깐
-```
-softwareupdate --list # 업데이트 목록 나열 
-softwareupdate -i -a # 모든 업데이트 설치
-```
-요래 적어주고 엔터 눌러줘요.
+* 이미 설치했으면 설치 말고 업데이트 해야 하니깐 `softwareupdate -i -a` 요래 적어주고 엔터 눌러줘요.
 
 2. [homebrew](https://brew.sh/) 드가서 적당히 야무지게 깔아줘요.
 
