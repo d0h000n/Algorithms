@@ -40,5 +40,6 @@ https://code.visualstudio.com/
 그 중에 이거 <img width="57" alt="스크린샷 2021-08-12 오후 7 18 30" src="https://user-images.githubusercontent.com/70815390/129180638-80ade85e-5090-4e6d-bdb6-0df67eff2a13.png">가 마켓인데, 앞으로 여기서 뭐 받으면 돼요.
 
 그 중에서 우린 요 2개 받으면 됩니다.
+
 <img width="408" alt="스크린샷 2021-08-12 오후 7 15 47" src="https://user-images.githubusercontent.com/70815390/129180307-c8f3b533-b3af-4883-9cd9-d6acf01ad775.png">
 
