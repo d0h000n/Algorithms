@@ -3,6 +3,7 @@
 ## Contents
 
 * 일반
+  - 환경
   - 용어
   - 완전탐색(Complete search)
   - 퇴각검색(Backtracking)
@@ -19,3 +20,5 @@
   - 최장증가 부분수열(Longest increasing subsequence, LIS)
   - 누적합 배열(Prefix sum array)
   - 
+
+환경
