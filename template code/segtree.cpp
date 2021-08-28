@@ -8,7 +8,7 @@ private:
     #define right R,((s+e)>>1)+1,e
     void update(int t, T x, int k, int s, int e) {
         if (t < s or e < t) return;
-        if (t <= s and e <= t) {tree[k] = op(tree[k],x); return;}
+        if (t <= s and e <= t) {tree[k] = x; return;}
         update(t,x,left), update(t,x,right);
         tree[k] = op(tree[L],tree[R]);
     }
