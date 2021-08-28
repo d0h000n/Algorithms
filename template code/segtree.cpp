@@ -10,7 +10,7 @@ private:
     void update(int t, T x, int k, int s, int e) {
         if (t < s or e < t) return;
         if (t <= s and e <= t) {U(tree[k],x); return;}
-        update(a,b,x,left), update(a,b,x,right);
+        update(t,x,left), update(t,x,right);
         tree[k] = op(tree[L],tree[R]);
     }
     T query(int a, int b, int k, int s, int e) {
