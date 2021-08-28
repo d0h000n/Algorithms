@@ -14,16 +14,16 @@ private:
         lazy[k] = tree[0];
     }
     void update(int a, int b, T x, int k, int s, int e) {
+        if (a <= s and e <= b) {U(lazy[k],x), propagate(k,s,e); return;}
         propagate(k,s,e);
         if (b < s or e < a) return;
-        if (a <= s and e <= b) {U(lazy[k],x), propagate(k,s,e); return;}
         update(a,b,x,left), update(a,b,x,right);
         tree[k] = op(tree[L],tree[R]);
     }
     T query(int a, int b, int k, int s, int e) {
         propagate(k,s,e);
-        if (b < s or e < a) return tree[0];
         if (a <= s and e <= b) return tree[k];
+        if (b < s or e < a) return tree[0];
         return op(query(a,b,left),query(a,b,right));
     }
     #undef U
