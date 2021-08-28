@@ -32,7 +32,7 @@ private:
     #undef left
     #undef right
 public:
-    LazySegmentTree(int n, T id, function<T(T&,T&)> f):
+    LazySegmentTree(int n, T id, function<T(const T&,const T&)> f):
         N(n), tree((n+1)<<2,id), lazy((n+1)<<2,id), op(f) {}
     void update(int a, int b, T x) {update(a,b,x,1,1,N);}
     T query(int a, int b) {return query(a,b,1,1,N);}
