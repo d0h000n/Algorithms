@@ -3,8 +3,8 @@ struct LazySegmentTree {
 private:
     int N; vector<T> tree, lazy; function<T(const T&,const T&)> op;
     #define U(x,y) x = op(x,y)
-    #define L (k<<1)
-    #define R ((k<<1)|1)
+    #define L k<<1
+    #define R (k<<1)|1
     #define left L,s,(s+e)>>1
     #define right R,((s+e)>>1)+1,e
     void propagate(int k, int s, int e) {
