@@ -2,7 +2,7 @@
 
 ## Contents
 
-* 일반
+* ~~일반~~
   - 환경
   - 용어
   - 완전탐색(Complete search)
