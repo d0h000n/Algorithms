@@ -1,9 +1,3 @@
-#include <bits/stdc++.h>
-#define REP(i,a,b) for (auto i = (a); i <= (b); ++i)
-#define debug(x) cerr << #x << " is " << x << endl
-#define el '\n'
-using namespace std; using ll = long long;
-
 struct BigInteger {
     bool sign; string s;
     BigInteger(): sign(0), s("0") {}
@@ -70,10 +64,3 @@ struct BigInteger {
         return o << x.s;
     }
 };
-
-int main() {
-    cin.tie(0)->sync_with_stdio(0);
-    BigInteger x = 11;
-    cout << BigInteger(-11) << ' ' << x << el;
-    cout << (BigInteger(+0) > BigInteger(-0) ? "True" : "False") << el;
-}
