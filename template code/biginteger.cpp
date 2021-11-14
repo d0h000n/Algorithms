@@ -1,6 +1,5 @@
 struct BigInteger {
-    bool sign;
-    std::string s;
+    bool sign; string s;
     BigInteger(): sign(0), s("0") {}
     void parsing(const string &x) {
         if (x[0] == '+') {
