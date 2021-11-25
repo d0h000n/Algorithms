@@ -43,4 +43,6 @@ https://code.visualstudio.com/
 
 <img width="408" alt="스크린샷 2021-08-12 오후 7 15 47" src="https://user-images.githubusercontent.com/70815390/129180307-c8f3b533-b3af-4883-9cd9-d6acf01ad775.png">
 
-Coderunner 대신 <img width="519" alt="스크린샷 2021-11-25 오후 11 15 05" src="https://user-images.githubusercontent.com/70815390/143457016-6234d706-6120-4f9e-89d6-e5500daf330c.png"> 받는 것도 좋습니다!
+이런 것도 있으니 참고하세요
+<img width="519" alt="스크린샷 2021-11-25 오후 11 15 05" src="https://user-images.githubusercontent.com/70815390/143457016-6234d706-6120-4f9e-89d6-e5500daf330c.png"> 
+받는 것도 좋습니다!
