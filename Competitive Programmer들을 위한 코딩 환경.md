@@ -45,4 +45,3 @@ https://code.visualstudio.com/
 
 이런 것도 있으니 참고하세요
 <img width="519" alt="스크린샷 2021-11-25 오후 11 15 05" src="https://user-images.githubusercontent.com/70815390/143457016-6234d706-6120-4f9e-89d6-e5500daf330c.png"> 
-받는 것도 좋습니다!
