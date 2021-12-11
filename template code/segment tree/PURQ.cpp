@@ -2,7 +2,7 @@ template <typename T> using Operation = function<T(const T&, const T&)>;
 
 template <typename T, const int n>
 struct RUPQ {
-  T t[2*n]; Operation<T> op;
+  T t[2*n]; Operation<T> op; T *array = t+n;
   RUPQ(T e, Operation<T>): op(f) {fill(t,t+2*n,e);}
   void build() {
     for (int k = n-1; k; --k)
