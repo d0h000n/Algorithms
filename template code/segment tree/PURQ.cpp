@@ -15,8 +15,8 @@ struct PURQ {
   T query(int a, int b) {
     T l = t[0], r = t[0];
     for (a += n, b += n; a <= b; a /= 2, b /= 2) {
-      if (a&1) l = op(l,t[0]);
-      if (~b&1) r = op(t[0],r);
+      if (a&1) l = op(l,t[a++]);
+      if (~b&1) r = op(t[b--],r);
     }
     return op(l,r);
   }
