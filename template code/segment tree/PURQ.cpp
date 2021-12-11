@@ -3,7 +3,7 @@ template <typename T> using Operation = function<T(const T&, const T&)>;
 template <typename T, const int n>
 struct PURQ {
   T t[2*n]; Operation<T> op; T *array = t+n;
-  PURQ(T e, Operation<T>): op(f) {fill(t,t+2*n,e);}
+  PURQ(T e, Operation<T> f): op(f) {fill(t,t+2*n,e);}
   void build() {
     for (int k = n-1; k; --k)
       t[k] = op(t[2*k],t[2*k+1]);
