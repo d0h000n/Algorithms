@@ -5,12 +5,10 @@ struct PURQ {
   T t[2*n]; Operation<T> op; T *array = t+n;
   PURQ(T e, Operation<T> f): op(f) {fill(t,t+2*n,e);}
   void build() {
-    for (int k = n-1; k; --k)
-      t[k] = op(t[2*k],t[2*k+1]);
+    for (int k = n-1; k; --k) t[k] = op(t[2*k],t[2*k+1]);
   }
-  void update(int k, T v) {
-    for (t[k += n] = v; k > 1; k /= 2)
-      t[k/2] = op(t[k],t[k^1]);
+  void update(int k, const T &v) {
+    for (t[k += n] = v=; k /= 2; t[k] = op(t[2*k],t[2*k+1]));
   }
   T query(int a, int b) {
     T l = t[0], r = t[0];
