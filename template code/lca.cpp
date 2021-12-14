@@ -12,5 +12,5 @@ int lca(int a, int b) {
 }
 void precalc() {
     REP(i,1,n) spt[0][i] = par[i];
-    REP(k,1,19) REP(i,1,n) spt[k][i] = spt[k-1][ spt[k-1][i] ];
+    REP(k,1,logN) REP(i,1,n) spt[k][i] = spt[k-1][ spt[k-1][i] ];
 }
