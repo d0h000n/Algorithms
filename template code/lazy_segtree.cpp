@@ -1,39 +1,25 @@
-template <typename T>
-struct LazySegmentTree {
-private:
-    int N; vector<T> tree, lazy; function<T(const T&,const T&)> op;
+template <typename T, const int n>
+struct RURQ {
+    T t[4*n], l[4*n]; Operation<T> op;
+    RURQ(T e, Operation<T> f): op(f) {fill(t,t+4*n,e), fill(l,l+4*n,e);}
     #define U(x,y) x = op(x,y)
-    #define L k<<1
-    #define R (k<<1)|1
-    #define left L,s,(s+e)>>1
-    #define right R,((s+e)>>1)+1,e
     void propagate(int k, int s, int e) {
-        if (lazy[k] == tree[0]) return;
-        U(tree[k],lazy[k]*(e-s+1));
-        if (s != e) U(lazy[L],lazy[k]), U(lazy[R],lazy[k]);
-        lazy[k] = tree[0];
+        U(t[k],l[k]*(e-s+1));
+        if (s != e) U(l[2*k],l[k]), U(l[2*k+1],l[k]);
+        l[k] = t[0];
     }
-    void update(int a, int b, T x, int k, int s, int e) {
-        if (a <= s and e <= b) {U(lazy[k],x), propagate(k,s,e); return;}
+    void update(int a, int b, const T &v, int k = 1, int s = 0, int e = n-1) {
+        if (a <= s and e <= b) {U(l[k],v), propagate(k,s,e); return;}
         propagate(k,s,e);
         if (b < s or e < a) return;
-        update(a,b,x,left), update(a,b,x,right);
-        tree[k] = op(tree[L],tree[R]);
+        update(a,b,v,2*k,s,(s+e)/2), update(a,b,v,2*k+1,(s+e)/2+1,e);
+        t[k] = op(t[2*k],t[2*k+1]);
     }
-    T query(int a, int b, int k, int s, int e) {
+    T query(int a, int b, int k = 1, int s = 0, int e = n-1) {
         propagate(k,s,e);
-        if (a <= s and e <= b) return tree[k];
-        if (b < s or e < a) return tree[0];
-        return op(query(a,b,left),query(a,b,right));
+        if (a <= s and e <= b) return t[k];
+        if (b < s or e < a) return t[0];
+        return op(query(a,b,2*k,s,(s+e)/2),query(a,b,2*k+1,(s+e)/2+1,e));
     }
     #undef U
-    #undef L
-    #undef R
-    #undef left
-    #undef right
-public:
-    LazySegmentTree(int n, T id, function<T(const T&,const T&)> f):
-        N(n), tree((n+1)<<2,id), lazy((n+1)<<2,id), op(f) {}
-    void update(int a, int b, T x) {update(a,b,x,1,1,N);}
-    T query(int a, int b) {return query(a,b,1,1,N);}
 };
