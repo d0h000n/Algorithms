@@ -22,15 +22,25 @@ namespace Geometry {
                 return s+cross(p[0],p.back());
             }
             
+            template <typename LOS1, typename LOS2>
+            constexpr bool parallel(const LOS1 &l, const LOS2 &m) {return cross(l.b-l.a, m.b-m.a) == 0;}
+            
             struct Seg {
                 P a, b;
-                constexpr bool operator == (const Seg &l) const {
-                    return a == l.a and b == l.b;
-                }
+                Seg(const P &_a, const P &_b): a(_a), b(_b) {}
+                constexpr bool operator == (const Seg &l) const {return a == l.a and b == l.b;}
+                ld length() {return abs(b-a);}
             };
             
             struct Line {
                 P a, b;
+                Line(const P &p, const P &q): a(p), b(q) {}
+                Line(const P &_a, const ll &_b): a(0,_b), b(a+_a) {}
+                // constexpr bool operator == (const Line &l) const {
+                //     return parallel((*this),l);
+                // }
+                friend ld dist(const Line &l, const P &p) {return cross(l.a-p,l.b-p)/abs(l.a-l.b);}
+                friend ld dist(const P &p, const Line &l) {return cross(l.a-p,l.b-p)/abs(l.a-l.b);}
             };
         }
         
@@ -47,6 +57,9 @@ namespace Geometry {
             
             constexpr bool operator == (const P &u, const P &v) {return abs(u.X-v.X) < EPS and abs(u.Y-v.Y) < EPS;}
             constexpr bool operator != (const P &u, const P &v) {return !(u == v);}
+            
+            ld dist(const P &u, const P &v) {return abs(u-v);}
+            P rotate(const P &u, ld theta) {return u*polar(1.0L,theta);}
             
             struct Seg {
                 P a, b;
@@ -107,5 +120,9 @@ namespace Geometry {
         constexpr bool operator == (const P<ll> &p, const P<ll> &q) {return p.X == q.X and p.Y == q.Y and p.Z == q.Z;}
         constexpr bool operator == (const P<ld> &p, const P<ld> &q) {return abs(p.X-q.X) < EPS and abs(p.Y-q.Y) < EPS and abs(p.Z == q.Z) < EPS;}
         template <typename C> constexpr bool operator != (const P<C> &p, const P<C> &q) {return !(p == q);}
+        
+        namespace Taxi {
+            ll dist(const P<ll> &p, const P<ll> &q) {return abs(p.X-q.X)+abs(p.Y-q.Y)+abs(p.Z-q.Z);}
+        }
     }
 }
