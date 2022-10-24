@@ -30,7 +30,7 @@ https://code.visualstudio.com/
    * 이미 설치했으면 설치 말고 업데이트 해야 하니깐 `softwareupdate -i -a` 요래 적어주고 엔터 눌러줘요.
 2. [homebrew](https://brew.sh/) 드가서 적당히 야무지게 깔아줘요.
 3. 다시 터미널 드가서 `brew install gcc` 적고 엔터.
-4. `g++-11 --version`이라고 적고, 엔터치면 copyright 뭐시기 뜨면서 완료됐다고 알려줍니다.
+4. `g++-11 --version`(현재는 12)이라고 적고, 엔터치면 copyright 뭐시기 뜨면서 완료됐다고 알려줍니다.
 
 ## 컴파일 세팅 드가자..!
 
