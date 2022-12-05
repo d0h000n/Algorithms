@@ -15,24 +15,24 @@
 암튼, XCode는 전에 글([Xcode 사용자를 위한 C/C++ 이용법](https://mathsciforstudent.tistory.com/105))을 쓴 적이 있고 그래서
 이번에는 VS Code의 셋팅에 관한 얘기들을 해보려 합니다.
 
-## 다운 링크 찾기 귀찮아요 응애
+## 다운 링크 찾기 귀찮아요
 https://code.visualstudio.com/
 
-## 이거 실행 안 돼요 응애
+## 이거 실행 안 돼요
 ### Window
 저도 이건 안 써봐서 몰라요. https://usaco.guide/general/running-code-locally?lang=cpp#windows 여기 드가보세요.
 
 ### Mac
 터미널을 들어갑시다. Command+Space 누르고 바로 검색하면 뜹니다.
 
-1. XCode Command Line Tool을 설치합니다. (XCode라고?! 걍 따라와봐요)
+1. XCode Command Line Tool을 설치합니다.
    * 처음이면 `xcode-select --install`라고 쓰고 엔터 눌러줘요.
    * 이미 설치했으면 설치 말고 업데이트 해야 하니깐 `softwareupdate -i -a` 요래 적어주고 엔터 눌러줘요.
-2. [homebrew](https://brew.sh/) 드가서 적당히 야무지게 깔아줘요.
+2. [homebrew](https://brew.sh/) 드가서 적당히 깔아줘요.
 3. 다시 터미널 드가서 `brew install gcc` 적고 엔터.
 4. `g++-11 --version`(현재는 12)이라고 적고, 엔터치면 copyright 뭐시기 뜨면서 완료됐다고 알려줍니다.
 
-## 컴파일 세팅 드가자..!
+## 컴파일 세팅
 
 대충 VS Code 열고나면 왼쪽에 이런거 뜰거에요.
 
